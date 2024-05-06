@@ -14,13 +14,13 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 #1. 修改默认IP
-sed -i 's/192.168.1.1/192.168.124.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 #2. web登陆密码从password修改为空
 #sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #3.固件版本号添加个人标识和日期
-sed -i "s/DISTRIB_DESCRIPTION='.*OpenWrt '/DISTRIB_DESCRIPTION='FICHEN($(TZ=UTC-8 date +%Y.%m.%d))@OpenWrt '/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/DISTRIB_DESCRIPTION='.*OpenWrt '/DISTRIB_DESCRIPTION='YXJDSSAi($(TZ=UTC-8 date +%Y.%m.%d))@AIRouter '/g" package/lean/default-settings/files/zzz-default-settings
 
 #4.编译的固件文件名添加日期
 #sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
@@ -37,7 +37,7 @@ cp -rf $GITHUB_WORKSPACE/backup/newifi3/files/etc/hotplug.d/block/30-usbmount fi
 chmod 755 files/etc/hotplug.d/block/30-usbmount
 
 #7.修改主机名
-sed -i "s/hostname='OpenWrt'/hostname='Newifi-D2'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='OpenWrt'/hostname='Ai-Router'/g" package/base-files/files/bin/config_generate
 
 
 #nps（修改nps源为yisier）
